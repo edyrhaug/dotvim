@@ -3,7 +3,7 @@ dotvim
 
 Installation:
 
-    git clone https://github.com/edyrhaug/dotvim.git
+    git clone https://github.com/edyrhaug/dotvim.git ~/.vim
 
 Create symlinks:
 
