@@ -3,4 +3,5 @@ call pathogen#helptags()
 
 color molokai
 syntax on
-number on
+set number
+
