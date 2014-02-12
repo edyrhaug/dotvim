@@ -3,7 +3,7 @@ dotvim
 
 Installation:
 
-    git clone git://github.com/nelstrom/dotvim.git ~/.vim
+    git clone https://github.com/edyrhaug/dotvim.git ~/.vim
 
 Create symlinks:
 
@@ -15,3 +15,7 @@ Switch to the `~/.vim` directory, and fetch submodules:
     cd ~/.vim
     git submodule init
     git submodule update
+
+Update all submodule repos:
+
+    git submodule foreach git pull origin master
