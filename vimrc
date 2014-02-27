@@ -10,6 +10,8 @@ color molokai
 syntax on
 set number
 
+set hlsearch
+
 set expandtab
 set shiftwidth=2
 set softtabstop=2
