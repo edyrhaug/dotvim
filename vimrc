@@ -5,10 +5,14 @@ set nocompatible
 
 filetype plugin indent on
 
+syntax enable
 set t_Co=256
-color molokai
-syntax on
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=0
 set number
+colorscheme solarized
+"highlight LineNr ctermfg=60 ctermbg=6
 
 set hlsearch
 
@@ -17,6 +21,16 @@ set shiftwidth=2
 set softtabstop=2
 
 set hidden
+
+set showcmd
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+let g:rspec_command = "Dispatch rspec {spec}"
 
 command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
 function! QuickfixFilenames()
