@@ -20,6 +20,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+set wildmode=longest,list,full
+set wildmenu
+
 set hidden
 
 set showcmd
