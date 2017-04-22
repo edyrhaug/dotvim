@@ -16,9 +16,16 @@ colorscheme solarized
 
 set hlsearch
 
+set list
+set listchars=tab:▸\ ,trail:~,extends:>,precedes:<
+
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
+
+" Use noexpandtab for smarty files (ojs)
+autocmd Filetype smarty setlocal noexpandtab
 
 set wildmode=longest,list,full
 set wildmenu
