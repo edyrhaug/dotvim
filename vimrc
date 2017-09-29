@@ -18,6 +18,10 @@ call minpac#add('thoughtbot/vim-rspec')
 call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('cespare/vim-toml')
 
+" minpac commands:
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
+
 filetype plugin indent on
 
 syntax enable
