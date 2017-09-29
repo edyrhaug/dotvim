@@ -1,9 +1,22 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 set nocompatible
 
 set directory=~/.vim/.swp//
+
+" minpac:
+packadd minpac
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-rails')
+call minpac#add('tpope/vim-bundler')
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('wincent/Command-T')
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('thoughtbot/vim-rspec')
+call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('cespare/vim-toml')
 
 filetype plugin indent on
 
