@@ -3,6 +3,8 @@ call pathogen#helptags()
 
 set nocompatible
 
+set directory=~/.vim/.swp//
+
 filetype plugin indent on
 
 syntax enable
