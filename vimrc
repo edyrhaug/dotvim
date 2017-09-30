@@ -9,6 +9,8 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-bundler')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-repeat')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('vim-ruby/vim-ruby')
 call minpac#add('tpope/vim-unimpaired')
@@ -17,6 +19,15 @@ call minpac#add('tpope/vim-dispatch')
 call minpac#add('thoughtbot/vim-rspec')
 call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('cespare/vim-toml')
+call minpac#add('christoomey/vim-tmux-navigator')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('elzr/vim-json')
+call minpac#add('w0rp/ale')
+call minpac#add('ajh17/Spacegray.vim')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('edkolev/tmuxline.vim')
 
 " minpac commands:
 command! PackUpdate call minpac#update()
@@ -26,12 +37,15 @@ filetype plugin indent on
 
 syntax enable
 set t_Co=256
+colorscheme spacegray
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=0
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=0
 set number
-colorscheme solarized
+"colorscheme solarized
 "highlight LineNr ctermfg=60 ctermbg=6
+let g:airline_theme='base16color'
+let g:Powerline_symbols = 'fancy'
 
 set hlsearch
 
@@ -43,11 +57,21 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+
 " Use noexpandtab for smarty files (ojs)
 autocmd Filetype smarty setlocal noexpandtab
 
 set wildmode=longest,list,full
 set wildmenu
+set path+=**
+set wildignore+=*/node_modules/*,*/vendor/*
+
+set rtp+=/usr/local/opt/fzf
 
 set hidden
 
@@ -55,6 +79,8 @@ set showcmd
 
 " clear current searchhl
 nnoremap \\ :noh<return>
+
+"nnoremap <BS> <C-^>
 
 " split nav
 nnoremap <C-J> <C-W><C-J>
@@ -85,3 +111,4 @@ function! QuickfixFilenames()
   endfor
   return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
+
