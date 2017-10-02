@@ -60,8 +60,22 @@ set tabstop=2
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
+"uncomment next two lines if annoying or perf issues:
+"let g:ale_lint_on_save = 1
+"let g:ale_lint_on_text_changed = 0
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '->'
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\}
+nmap <silent> [w <Plug>(ale_previous_wrap)
+nmap <silent> ]w <Plug>(ale_next_wrap)
+nmap <leader>w :ALEFix<cr>
+let g:ale_statusline_format = ['X %d', '? %d', '']
+let g:ale_echo_msg_format = '%linter% says %s'
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 
 " Use noexpandtab for smarty files (ojs)
 autocmd Filetype smarty setlocal noexpandtab
