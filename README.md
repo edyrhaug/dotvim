@@ -1,7 +1,7 @@
 dotvim
 ======
 
-##VIM 8:
+**VIM 8:**
 
 Clone repo:
 
@@ -25,7 +25,7 @@ Run vim and install packages:
 >In vim run `PackageUpdate`
 
 -------------------
-##VIM 7:
+**VIM 7:**
 
 Clone repo:
 
