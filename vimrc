@@ -28,6 +28,9 @@ call minpac#add('ajh17/Spacegray.vim')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('edkolev/tmuxline.vim')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('junegunn/fzf.vim')
+" call minpac#add('SirVer/ultisnips')
 
 " minpac commands:
 command! PackUpdate call minpac#update()
@@ -79,12 +82,24 @@ highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 
 " Use noexpandtab for smarty files (ojs)
 autocmd Filetype smarty setlocal noexpandtab
+autocmd Filetype less setlocal noexpandtab
+autocmd Filetype php setlocal noexpandtab
 
 set wildmode=longest,list,full
 set wildmenu
 set path+=**
 set wildignore+=*/node_modules/*,*/vendor/*
 
+" FZF Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" FZF Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 set rtp+=/usr/local/opt/fzf
 
 set hidden
@@ -92,7 +107,7 @@ set hidden
 set showcmd
 
 " clear current searchhl
-nnoremap \\ :noh<return>
+nnoremap <silent> \\ :noh<return>
 
 "nnoremap <BS> <C-^>
 
