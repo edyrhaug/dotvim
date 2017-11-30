@@ -1,7 +1,33 @@
 dotvim
 ======
 
-Installation:
+##VIM 8:
+
+Clone repo:
+
+    git clone git@github.com:edyrhaug/dotvim.git ~/.vim --branch v8
+
+Create symlink and swp directory:
+
+    ln -s ~/.vim/vimrc ~/.vimrc
+    mkdir ~/.vim/.swp
+    mkdir -p ~/.vim/pack/minpac/opt
+
+Set up minpack:
+
+    mkdir -p ~/.vim/pack/minpac/opt
+    cd ~/.vim/pack/minpac/opt
+    git clone https://github.com/k-takata/minpac.git
+
+Run vim and install packages:
+
+    vim
+>In vim run `PackageUpdate`
+
+-------------------
+##VIM 7:
+
+Clone repo:
 
     git clone git@github.com:edyrhaug/dotvim.git ~/.vim
 
