@@ -29,7 +29,7 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('edkolev/tmuxline.vim')
 call minpac#add('mattn/emmet-vim')
-call minpac#add('junegunn/fzf.vim')
+" call minpac#add('junegunn/fzf.vim')
 " call minpac#add('SirVer/ultisnips')
 
 " minpac commands:
@@ -91,16 +91,16 @@ set path+=**
 set wildignore+=*/node_modules/*,*/vendor/*
 
 " FZF Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
+" nmap <leader><tab> <plug>(fzf-maps-n)
+" xmap <leader><tab> <plug>(fzf-maps-x)
+" omap <leader><tab> <plug>(fzf-maps-o)
 
 " FZF Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-set rtp+=/usr/local/opt/fzf
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
+" set rtp+=/usr/local/opt/fzf
 
 set hidden
 
