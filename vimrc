@@ -29,6 +29,7 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('edkolev/tmuxline.vim')
 call minpac#add('mattn/emmet-vim')
+call minpac#add('posva/vim-vue')
 " call minpac#add('junegunn/fzf.vim')
 " call minpac#add('SirVer/ultisnips')
 
