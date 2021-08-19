@@ -26,9 +26,12 @@ call minpac#add('cespare/vim-toml')
 call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
-call minpac#add('kchmck/vim-coffee-script')
-call minpac#add('mtscout6/vim-cjsx')
+" call minpac#add('kchmck/vim-coffee-script')
+" call minpac#add('mtscout6/vim-cjsx')
 " call minpac#add('mxw/vim-jsx') "deprecated , replaced by vim-jsx-pretty
+call minpac#add('posva/vim-vue')
+call minpac#add('leafgarland/typescript-vim')
+call minpac#add('Quramy/tsuquyomi')
 call minpac#add('elzr/vim-json')
 call minpac#add('w0rp/ale')
 call minpac#add('ajh17/Spacegray.vim')
@@ -36,8 +39,14 @@ call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('edkolev/tmuxline.vim')
 call minpac#add('mattn/emmet-vim')
+call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('tomtom/tcomment_vim')
+call minpac#add('chrisbra/Colorizer')
+call minpac#add('prabirshrestha/vim-lsp')
+call minpac#add('mattn/vim-lsp-settings')
+call minpac#add('prabirshrestha/asyncomplete.vim')
+call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 " call minpac#add('SirVer/ultisnips')
 
 " minpac commands:
@@ -84,12 +93,23 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'ruby': ['rubocop'],
 \}
+
+"COMMENTED OUT TO TRY LSP RUST WORKFLOW
+"(TODO: Make autocmd or similar to have both depending on filetype maybe?)
 nmap <silent> [w <Plug>(ale_previous_wrap)
 nmap <silent> ]w <Plug>(ale_next_wrap)
 nmap <leader>w :ALEFix<cr>
 nmap <Leader>gd :ALEGoToDefinition<cr>
 nmap <Leader>gr :ALEFindReferences<cr>
 nmap <Leader>gh :ALEHover<cr>
+
+"COMMENTED OUT TO DO RUBY AGAIN
+" nmap <silent> [w :LspPreviousDiagnostic<cr>
+" nmap <silent> ]w :LspNextDiagnostic<cr>
+" nmap <leader>w :LspDocumentDiagnostics<cr>
+" nmap <Leader>gd :LspDefinition<cr>
+" nmap <Leader>gr :LspReferences<cr>
+" nmap <Leader>gh :LspHover<cr>
 
 let g:ale_statusline_format = ['X %d', '? %d', '']
 let g:ale_echo_msg_format = '%linter% says %s'
@@ -122,16 +142,17 @@ nnoremap <leader>F :GFiles<cr>
 nnoremap <leader>r :Rg<cr>
 nnoremap <leader>R :GGrep<cr>
 
-" FZF Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-set rtp+=/usr/local/opt/fzf
-
-" Code completion using ALE (testing...)
-let g:ale_completion_enabled = 1
-set completeopt+=noinsert
+"COMMENTED OUT TO TRY LSP VANILLA BEHAVIOUR
+" " FZF Insert mode completion
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
+" set rtp+=/usr/local/opt/fzf
+"
+" " Code completion using ALE (testing...)
+" let g:ale_completion_enabled = 1
+" set completeopt+=noinsert
 
 set hidden
 
