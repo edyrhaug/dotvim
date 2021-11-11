@@ -37,6 +37,8 @@ call minpac#add('elzr/vim-json')
 " call minpac#add('dense-analysis/ale')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('ackyshake/Spacegray.vim')
+call minpac#add('hzchirs/vim-material')
+call minpac#add('kaicataldo/material.vim', {'branch': 'main'})
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('edkolev/tmuxline.vim')
@@ -58,21 +60,22 @@ command! PackClean call minpac#clean()
 command! Greview :Git! diff --staged
 
 filetype plugin indent on
+set number
 
 syntax enable
-set t_Co=256
-colorscheme spacegray
-let g:spacegray_low_contrast = 1
+" set t_Co=256
 set background=dark
-let g:spacegray_termcolors=256
+set termguicolors
+colorscheme material
+" let g:spacegray_low_contrast = 1
+" let g:spacegray_termcolors=256
 "let g:solarized_termtrans=0
-set number
 "colorscheme solarized
 " highlight LineNr ctermfg=6 ctermbg=60
 " highlight SignColumn ctermbg=DarkGreen
 highlight Pmenu ctermbg=234 guibg=234
 
-let g:airline_theme='base16color'
+" let g:airline_theme='base16color'
 let g:Powerline_symbols = 'fancy'
 
 set hlsearch
