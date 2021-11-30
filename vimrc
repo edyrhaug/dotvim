@@ -1,9 +1,9 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set runtimepath=~/noasp_jobs/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/noasp_jobs/.vim/after
+call pathogen#infect('~/noasp_jobs/.vim/bundle')
 
 set nocompatible
 
-set directory=~/.vim/.swp//
+set directory=~/noasp_jobs/.vim/.swp//
 
 filetype plugin indent on
 
