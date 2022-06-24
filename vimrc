@@ -8,6 +8,7 @@ packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('wfxr/minimap.vim')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-bundler')
@@ -34,6 +35,7 @@ call minpac#add('posva/vim-vue')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('Quramy/tsuquyomi')
 call minpac#add('elzr/vim-json')
+call minpac#add('hashivim/vim-terraform')
 " call minpac#add('dense-analysis/ale')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('ackyshake/Spacegray.vim')
@@ -67,16 +69,33 @@ syntax enable
 set background=dark
 set termguicolors
 colorscheme material
+" let g:material_theme_style = 'darker'
 " let g:spacegray_low_contrast = 1
 " let g:spacegray_termcolors=256
 "let g:solarized_termtrans=0
 "colorscheme solarized
 " highlight LineNr ctermfg=6 ctermbg=60
 " highlight SignColumn ctermbg=DarkGreen
-highlight Pmenu ctermbg=234 guibg=234
+" highlight Pmenu ctermbg=234 guibg=#152025
+highlight Pmenu ctermbg=234 guibg=#365663
+highlight Normal guibg=#0d1a2c
+
+" Custom material diff highlight colors:
+highlight diffChange gui=none guifg=none guibg=#343E4A
+highlight diffAdd gui=none guifg=#263238 guibg=#c3e88d
+highlight diffDelete gui=none guifg=#FF8A80 guibg=#263238
+highlight diffText gui=none guifg=#263238 guibg=#fae284
+
+highlight Visual guibg=#546E7A guifg=none
 
 " let g:airline_theme='base16color'
 let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = "\u33c7"
+let g:airline_symbols.dirty = "🔅"
 
 set hlsearch
 
@@ -89,7 +108,7 @@ set softtabstop=2
 set tabstop=2
 
 set sidescroll=1
-set mouse=a
+" set mouse=a
 set cmdheight=2
 
 let g:javascript_plugin_flow = 1
@@ -105,6 +124,9 @@ inoremap <expr> <c-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 set updatetime=300
 set shortmess+=c
 set signcolumn=number
+
+"Need this for node17, as it changes the default:
+" let g:coc_node_args = ['--dns-result-order=ipv4first']
 
 "Tab completion:
 inoremap <silent><expr> <TAB>
@@ -354,7 +376,10 @@ function! QuickfixFilenames()
   return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
 
-
+" Minimap (requires code-minimap, available through homebrew or cargo)
+let g:minimap_width = 10
+" let g:minimap_auto_start = 1
+" let g:minimap_auto_start_win_enter = 1
 
 " Check if NERDTree is open or active
 function! IsNERDTreeOpen()
