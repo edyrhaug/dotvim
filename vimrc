@@ -135,7 +135,7 @@ set signcolumn=number
 
 "Tab completion:
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#refresh() : "\<Tab>"
+      \ coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
