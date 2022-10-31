@@ -6,6 +6,7 @@ set directory=~/.vim/.swp//
 packadd cfilter
 packadd minpac
 call minpac#init()
+call minpac#add('github/copilot.vim')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('wfxr/minimap.vim')
@@ -49,6 +50,10 @@ call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('tomtom/tcomment_vim')
 call minpac#add('chrisbra/Colorizer')
+call minpac#add('liuchengxu/graphviz.vim')
+call minpac#add('rust-lang/rust.vim')
+" call minpac#add('startup-nvim/startup.nvim')
+call minpac#add('mhinz/vim-startify')
 " call minpac#add('prabirshrestha/vim-lsp')
 " call minpac#add('mattn/vim-lsp-settings')
 " call minpac#add('prabirshrestha/asyncomplete.vim')
@@ -116,8 +121,8 @@ let g:jsx_ext_required = 0
 
 
 "navigate pop-up menu with Ctrl j/k
-inoremap <expr> <c-j> pumvisible() ? "\<C-N>" : "\<C-j>"
-inoremap <expr> <c-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+inoremap <expr> <c-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <expr> <c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 
 "Coc, you're a Coc, you're a Coc!
 "--------------------------------
@@ -130,27 +135,13 @@ set signcolumn=number
 
 "Tab completion:
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+      \ coc#pum#visible() ? coc#refresh() : "\<Tab>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
