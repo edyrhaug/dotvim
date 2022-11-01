@@ -102,6 +102,9 @@ endif
 let g:airline_symbols.colnr = "\u33c7"
 let g:airline_symbols.dirty = "🔅"
 
+nnoremap <space> <Nop>
+let mapleader=" "
+
 set hlsearch
 
 set list
@@ -236,21 +239,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> ,a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> ,e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> ,c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> ,o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> ,s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> ,j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> ,k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> ,p  :<C-u>CocListResume<CR>
 
 "--------------------------------
 "/end of Coc
@@ -327,11 +330,21 @@ nnoremap <leader>R :GGrep<cr>
 " set completeopt+=noinsert
 
 set hidden
+set breakindent
+set breakindentopt=shift:2,sbr
+set showbreak=↳
+nmap <silent> <leader>w :set wrap!<cr>
+nmap <silent> <M-l> 20zl
+nmap <silent> <M-h> 20zh
+nmap <silent> <M-j> <C-d>
+nmap <silent> <M-k> <C-u>
+set relativenumber
+map <C-m> :MinimapToggle<CR>
 
 set showcmd
 
 " clear current searchhl
-nnoremap <silent> \\ :noh<return> \| :pc<return>
+nnoremap <silent> <leader><leader> :noh<return> \| :pc<return>
 
 "nnoremap <BS> <C-^>
 
