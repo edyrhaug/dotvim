@@ -1,8 +1,9 @@
 set nocompatible
 
-set directory=~/.vim/.swp//
+set directory=~/noasp_jobs/.vim/.swp//
 
 " minpac:
+set packpath^=~/noasp_jobs/.vim
 packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -24,7 +25,7 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('elzr/vim-json')
 call minpac#add('w0rp/ale')
-call minpac#add('ajh17/Spacegray.vim')
+call minpac#add('kaicataldo/material.vim')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('edkolev/tmuxline.vim')
@@ -41,7 +42,7 @@ filetype plugin indent on
 
 syntax enable
 set t_Co=256
-colorscheme spacegray
+colorscheme material
 set background=dark
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=0
